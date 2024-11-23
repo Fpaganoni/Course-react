@@ -4,28 +4,13 @@
   padding: 2rem;
   text-align: center;
   font-family: "Lexend", sans-serif;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  --orange: #d66853;
+  --brown: #7d4e57;
+  --ligth-gray: #364156;
+  --dark-blue: #212d40;
+  --black: #00000a;
+  --white: #f4eef3;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -43,30 +28,33 @@
 }
 
 .event_container {
-  max-width: 600px;
-  background-color: #404040;
+  max-width: 750px;
+  background-color: var(--dark-blue);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
-  padding: 1.2rem;
-  border-radius: 5%;
+  padding: 2.5rem;
+  border-radius: 50% / 20%;
 }
 
 .event_img {
   box-shadow: 2px 2px 5px #252525, 3px 3px 8px #252525;
+  border-radius: 1%;
 }
 
 .event_title {
   text-shadow: 2px 2px 5px #252525, 3px 3px 8px #252525;
   letter-spacing: 2px;
+  color: var(--white);
 }
 
 .event_info {
-  padding: 2rem;
+  padding: 1.7rem;
   line-height: 1.4;
   border-radius: 10% / 50%;
-  background-color: #242424;
+  background-color: var(--white);
+  color: var(--ligth-gray);
+  font-size: 0.9rem;
 }

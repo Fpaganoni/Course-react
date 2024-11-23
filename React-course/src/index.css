@@ -5,12 +5,19 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--black);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --orange: #d66853;
+  --brown: #7d4e57;
+  --ligth-gray: #364156;
+  --dark-blue: #212d40;
+  --black: #00000a;
+  --white: #f4eef3;
 }
 
 a {
@@ -42,12 +49,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--black);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--orange);
 }
 button:focus,
 button:focus-visible {
