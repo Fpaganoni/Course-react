@@ -36,12 +36,14 @@
   justify-content: center;
   margin-bottom: 1rem;
   padding: 2.5rem;
-  border-radius: 50% / 20%;
+  border-radius: 20%;
 }
 
 .event_img {
   box-shadow: 2px 2px 5px #252525, 3px 3px 8px #252525;
-  border-radius: 1%;
+  border-radius: 2%;
+  width: 350px;
+  height: 250px;
 }
 
 .event_title {
@@ -54,6 +56,7 @@
   padding: 1.7rem;
   line-height: 1.4;
   border-radius: 10% / 50%;
+  box-shadow: 3px 3px 4px var(--ligth-gray), -3px -3px 4px var(--ligth-gray);
   background-color: var(--white);
   color: var(--ligth-gray);
   font-size: 0.9rem;
