@@ -1,15 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import useEventsData from "../../hooks/useEventsData";
 import EventItem from "./components/EventItem";
-import eventsJSON from "../../data/events.json";
 
 // colocamos la info que vamos a usar en una constante
 
 const Events = ({ searchTerm }) => {
-  const [data] = useState(eventsJSON);
-  const {
-    _embedded: { events },
-  } = data;
+  const { events, error, isLoading } = useEventsData();
 
   const handleEventItemClick = (id) => {
     console.log("Evento seleccionado", id);
@@ -36,12 +32,15 @@ const Events = ({ searchTerm }) => {
     ));
   };
 
-  return (
-    <div>
-      Eventos
-      {renderEvents()}
-    </div>
-  );
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (isLoading) {
+    return <div>Loading . . .</div>;
+  }
+
+  return <div>{renderEvents()}</div>;
 };
 
 export default Events;

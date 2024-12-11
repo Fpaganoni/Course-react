@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useRef, forwardRef, useImperativeHandle } from "react";
 
 // eslint-disable-next-line react/prop-types
-const Navbar = ({ onSearch }) => {
+const Navbar = forwardRef(({ onSearch }, ref) => {
   const [search, setSearch] = useState("");
+  const containerRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    search,
+    setSearch,
+  }));
 
   const handleInputChange = (evt) => {
     setSearch(evt.target.value);
@@ -14,10 +20,13 @@ const Navbar = ({ onSearch }) => {
     }
   };
 
+  console.log(containerRef);
+
   return (
-    <div>
+    <div ref={ref}>
       <h1>Mi boletera</h1>
       <input
+        className="boletera-input"
         placeholder="Busca tu evento favorito"
         onChange={handleInputChange}
         onKeyDown={handleInputKeyDown}
@@ -25,6 +34,8 @@ const Navbar = ({ onSearch }) => {
       />
     </div>
   );
-};
+});
+
+Navbar.displayName = "Navbar";
 
 export default Navbar;

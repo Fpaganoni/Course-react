@@ -7,9 +7,9 @@
 
   --orange: #d66853;
   --brown: #7d4e57;
-  --ligth-gray: #364156;
-  --dark-blue: #212d40;
-  --black: #00000a;
+  --ligth-gray: #3f4651;
+  --dark-blue: #201d24;
+  --black: #212121;
   --white: #f4eef3;
 }
 
@@ -17,6 +17,15 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+}
+
+.boletera-input {
+  padding: 0.8rem 0.4rem;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--dark-blue);
+  border: none;
 }
 
 .card {
@@ -29,14 +38,31 @@
 
 .event_container {
   max-width: 750px;
-  background-color: var(--dark-blue);
+  border: 1px solid var(--ligth-gray);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   padding: 2.5rem;
-  border-radius: 20%;
+  border-radius: 5%;
+  transition: all 2s ease;
+
+  &&:hover {
+    border: 2px solid var(--orange);
+    /* fallback for old browsers */
+    background: linear-gradient(
+      to left,
+      #d66853,
+      #201d24
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to left,
+      #d66853,
+      #201d24
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    cursor: pointer;
+  }
 }
 
 .event_img {
@@ -56,8 +82,42 @@
   padding: 1.7rem;
   line-height: 1.4;
   border-radius: 10% / 50%;
-  box-shadow: 3px 3px 4px var(--ligth-gray), -3px -3px 4px var(--ligth-gray);
   background-color: var(--white);
   color: var(--ligth-gray);
   font-size: 0.9rem;
+  transition: transform 0.3s;
+
+  &&:hover {
+    box-shadow: 2px 2px 4px var(--black), 4px 4px 5px var(--black);
+  }
+}
+
+/* Form styles */
+
+.singup_form {
+  width: 250px;
+  height: max-content;
+  background-color: var(--dark-blue);
+  border-radius: 1%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.labels_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container_buttons_form {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.7rem;
+}
+
+.buttons_form {
+  border: 0.8px solid var(--brown);
+  width: 100%;
 }

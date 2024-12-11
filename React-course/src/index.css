@@ -40,6 +40,10 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: var(--orange);
+  text-shadow: 2px 2px 3px var(--ligth-gray), 3px 3px 5px var(--ligth-gray);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 button {
