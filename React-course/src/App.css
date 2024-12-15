@@ -1,35 +1,27 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
-  font-family: "Lexend", sans-serif;
+  font-family: "Poppins", sans-serif;
 
   --orange: #d66853;
   --brown: #7d4e57;
-  --ligth-gray: #3f4651;
+  --ligth-gray: #404752;
+  --dark-gray: #1f242b;
   --dark-blue: #201d24;
-  --black: #212121;
+  --black: hsl(0, 0%, 40%, 10%);
   --white: #f4eef3;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .boletera-input {
   padding: 0.8rem 0.4rem;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-bottom: 2rem;
   background-color: var(--dark-blue);
   border: none;
-}
-
-.card {
-  padding: 2em;
+  border-radius: 2%;
 }
 
 .read-the-docs {
@@ -38,29 +30,18 @@
 
 .event_container {
   max-width: 750px;
-  border: 1px solid var(--ligth-gray);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.6em;
   margin-bottom: 3rem;
-  padding: 2.5rem;
-  border-radius: 5%;
-  transition: all 2s ease;
+  padding: 2.7rem;
+  border-radius: 3%;
+  transition: all 1s ease;
 
   &&:hover {
-    border: 2px solid var(--orange);
-    /* fallback for old browsers */
-    background: linear-gradient(
-      to left,
-      #d66853,
-      #201d24
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to left,
-      #d66853,
-      #201d24
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: var(--black);
     cursor: pointer;
   }
 }
@@ -68,28 +49,23 @@
 .event_img {
   box-shadow: 2px 2px 5px #252525, 3px 3px 8px #252525;
   border-radius: 2%;
-  width: 350px;
-  height: 250px;
+  width: 300px;
+  height: 200px;
 }
 
 .event_title {
-  text-shadow: 2px 2px 5px #252525, 3px 3px 8px #252525;
   letter-spacing: 2px;
   color: var(--white);
+  margin: 0;
 }
 
 .event_info {
-  padding: 1.7rem;
+  width: 100%;
+  margin: 0;
   line-height: 1.4;
-  border-radius: 10% / 50%;
-  background-color: var(--white);
-  color: var(--ligth-gray);
+  color: var(--white);
   font-size: 0.9rem;
   transition: transform 0.3s;
-
-  &&:hover {
-    box-shadow: 2px 2px 4px var(--black), 4px 4px 5px var(--black);
-  }
 }
 
 /* Form styles */
@@ -115,9 +91,4 @@
   display: flex;
   gap: 0.6rem;
   margin-top: 0.7rem;
-}
-
-.buttons_form {
-  border: 0.8px solid var(--brown);
-  width: 100%;
 }
