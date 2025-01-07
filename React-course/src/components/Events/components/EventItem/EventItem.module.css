@@ -1,0 +1,75 @@
+:root {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+
+  --orange: #d66853;
+  --brown: #7d4e57;
+  --ligth-gray: #404752;
+  --dark-gray: #1f242b;
+  --dark-blue: #201d24;
+  --black: #6666661a;
+  --white: #f4eef3;
+}
+
+.eventContainer {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  gap: 1.6em;
+  padding: 1.5rem;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+
+  &&:hover {
+    border: 0.5px solid var(--white);
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+}
+
+.eventImg {
+  align-self: center;
+  border-radius: 2%;
+  min-width: 250px;
+  width: 250px;
+  min-height: 150px;
+  height: 150px;
+}
+
+.infoContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.eventTitle {
+  letter-spacing: 2px;
+  color: var(--white);
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.eventInfo {
+  width: 100%;
+  margin: 0;
+  line-height: 1.4;
+  color: var(--white);
+  font-size: 0.8rem;
+  overflow: hidden;
+  padding-right: 0.8rem;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+
+  transition: transform 0.3s;
+}
+
+.seeMoreBtn {
+  width: 150px;
+  align-self: center;
+  margin-top: auto;
+}

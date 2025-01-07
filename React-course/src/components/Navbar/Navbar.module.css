@@ -1,0 +1,35 @@
+:root {
+  --orange: #d66853;
+  --brown: #7d4e57;
+  --ligth-gray: #404752;
+  --dark-gray: #1f242b;
+  --dark-blue: #201d24;
+  --black: #6666661a;
+  --white: #f4eef3;
+}
+
+.navBarContainer {
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10em;
+}
+
+.boleteraInput {
+  padding: 0.8rem 0.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: var(--dark-blue);
+  border: none;
+  border-radius: 2%;
+}
+
+.navbarTitle {
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--white);
+  text-shadow: 2px 2px 3px var(--ligth-gray), 4px 5px 0px var(--ligth-gray);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}

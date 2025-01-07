@@ -1,0 +1,37 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+
+  --orange: #d66853;
+  --brown: #7d4e57;
+  --ligth-gray: #364156;
+  --dark-blue: #212d40;
+  --black: #00000a;
+  --white: #f4eef3;
+}
+
+.errorContainer {
+  width: max-content;
+  height: 200px;
+  padding: 0 1.2rem;
+  margin: 200px auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.errorTitle {
+  font-size: 1.7rem;
+  color: var(--white);
+}
+
+.errorParagraph {
+  font-size: 1.2rem;
+  color: var(--white);
+}
