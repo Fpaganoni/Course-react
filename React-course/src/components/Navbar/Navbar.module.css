@@ -12,15 +12,15 @@
   min-height: 150px;
   display: flex;
   justify-content: center;
+  gap: 350px;
   align-items: center;
-  gap: 10em;
 }
 
 .boleteraInput {
   padding: 0.8rem 0.4rem;
   text-align: center;
   font-size: 0.8rem;
-  background-color: var(--dark-blue);
+  background-color: var(--dark-gray);
   border: none;
   border-radius: 2%;
 }

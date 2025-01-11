@@ -1,20 +1,64 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/Navbar";
 import Events from "../../components/Events";
+import useEventsData from "../../hooks/useEventsData";
+import ReactPaginate from "react-paginate";
+import styles from "./Home.module.css";
 
 const Home = () => {
+  const { events, error, isLoading, fetchEvents, page } = useEventsData();
   const [searchTerm, setSearchTerm] = useState("");
   const containerRef = useRef();
+
   useEffect(() => {
-    console.log("useEfecct");
+    fetchEvents();
   }, []);
+
   const handleNavbarSearch = (term) => {
     setSearchTerm(term);
+    fetchEvents(`&keyword=${term}`);
   };
+
+  const handlePageClick = ({ selected }) => {
+    fetchEvents(`&keyword=${searchTerm}&page=${selected}`);
+  };
+
+  const renderEvents = () => {
+    if (isLoading) {
+      return <div>Loading . . .</div>;
+    }
+
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    }
+
+    return (
+      <div>
+        <Events searchTerm={searchTerm} events={events} />
+
+        <ReactPaginate
+          className={styles.pagination}
+          nextClassName={styles.next}
+          previousClassName={styles.prev}
+          pageClassName={styles.page}
+          activeClassName={styles.activePage}
+          disabledClassName={styles.disabledPage}
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={6}
+          pageCount={page.totalPages}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+        />
+      </div>
+    );
+  };
+
   return (
     <div>
       <Navbar onSearch={handleNavbarSearch} ref={containerRef} />
-      <Events searchTerm={searchTerm} />
+      {renderEvents()}
     </div>
   );
 };

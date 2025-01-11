@@ -1,10 +1,9 @@
-import { useState, useRef, forwardRef, useImperativeHandle } from "react";
+import { useState, forwardRef, useImperativeHandle } from "react";
 import styles from "./Navbar.module.css";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = forwardRef(({ onSearch }, ref) => {
   const [search, setSearch] = useState("");
-  const containerRef = useRef();
 
   useImperativeHandle(ref, () => ({
     search,
@@ -20,8 +19,6 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
       onSearch(search);
     }
   };
-
-  console.log(containerRef);
 
   return (
     <div ref={ref} className={styles.navBarContainer}>

@@ -1,0 +1,48 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+
+  --orange: #d66853;
+  --brown: #7d4e57;
+  --ligth-gray: #364156;
+  --dark-blue: #212d40;
+  --black: #00000a;
+  --white: #f4eef3;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0.1rem 0.3rem;
+}
+
+.prev,
+.next,
+.page {
+  cursor: pointer;
+}
+
+.next,
+.prev {
+  font-size: 20px;
+}
+
+.activePage {
+  color: var(--dark-blue);
+  background-color: var(--white);
+  padding: 1px 8px;
+  border-radius: 20px;
+  transition-property: background, padding;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 0.8);
+}
+
+.disabledPage {
+  cursor: not-allowed;
+}

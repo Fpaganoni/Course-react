@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import useEventsData from "../../hooks/useEventsData";
+
 import EventItem from "./components/EventItem";
 import styles from "./Events.module.css";
 import { useNavigate } from "react-router-dom";
 // colocamos la info que vamos a usar en una constante
 
-const Events = ({ searchTerm }) => {
-  const { events, error, isLoading } = useEventsData();
+const Events = ({ searchTerm, events }) => {
   const navigate = useNavigate();
 
   const handleEventItemClick = (id) => {
@@ -33,14 +32,6 @@ const Events = ({ searchTerm }) => {
       />
     ));
   };
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  if (isLoading) {
-    return <div>Loading . . .</div>;
-  }
 
   return <div className={styles.eventsContainer}>{renderEvents()}</div>;
 };

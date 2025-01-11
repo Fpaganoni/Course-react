@@ -72,4 +72,5 @@
   width: 150px;
   align-self: center;
   margin-top: auto;
+  background-color: var(--dark-gray);
 }
