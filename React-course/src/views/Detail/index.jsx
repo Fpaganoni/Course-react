@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./Detail.module.css";
 import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 const Detail = () => {
   const { eventId } = useParams();
@@ -41,20 +42,48 @@ const Detail = () => {
   return (
     <div className={styles.container}>
       <div className={styles.mainInfoContainer}>
-        <h4 className={styles.infoTitle}>{eventData.name}</h4>
+        <h3 className={styles.infoTitle}>{eventData.name}</h3>
         <figure className={styles.imgContainerInfo}>
           <img
             className={styles.imgInfo}
             src={eventData.images?.[0].url}
-            alt=""
+            alt={eventData.name}
           />
         </figure>
         <p className={styles.infoText}>{eventData.info}</p>
-        {/* <p className={styles.infoDate}>{eventData.dates.start.localDate}</p>
-          ENCONTRAR EL ERROR DE PORQUE NO RECONOCE EL "START" EN LA LLAMADA A LA API
-        */}
+
+        {
+          <p className={styles.infoDate}>
+            {eventData.dates?.start?.dateTime
+              ? format(
+                  new Date(eventData.dates.start.dateTime),
+                  "d LLLL yyyy - H:mm",
+                  { locale: es }
+                )
+              : "Fecha no disponible"}
+            Hrs
+          </p>
+        }
+      </div>
+      <div className={styles.seatInfoContainer}>
+        <h4 className={styles.seatMapTitle}>Mapa del evento</h4>
+        <figure className={styles.seatMapImgContainer}>
+          <img
+            className={styles.seatMapImg}
+            src={
+              eventData?.seatmap?.staticUrl
+                ? eventData.seatmap.staticUrl
+                : "Mapa no disponible"
+            }
+            alt="seat mapa Event"
+          />
+        </figure>
+        <p className={styles.seatMapParagraph}>{eventData.pleaseNote}</p>
       </div>
     </div>
+
+    /* ENCONTRAR EL ERROR DE PORQUE NO RECONOCE EL "START" EN LA LLAMADA A LA
+        API = LO SOLUCIONE USANDO EL OPTIONAL CHAINING, "?" SI SE ENCUENTRA EN LA LLAMADA A LA API LOS RESULTADOS SE MUESTRAN, DE LO CONTRARIO MUESTAR DATA NO AVAILABLE. */
   );
 };
 
