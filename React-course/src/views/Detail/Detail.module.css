@@ -1,7 +1,7 @@
 :root {
   --dark-gray: #3c3c3c;
   --ligth-gray: #7a7a7a;
-  --gap-elements: 1.3rem;
+  --gap-elements: 1.5rem;
 }
 
 * {
@@ -13,13 +13,12 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 650px;
-  margin-top: 2rem;
-  margin: 2.3rem;
+  gap: 2.1rem;
+  max-width: 750px;
+  margin: 2.5rem 0;
   background-color: var(--dark-gray);
-  padding: 2rem 2.3rem;
-  border-radius: 3px;
+  padding: 2.5rem;
+  border-radius: 10px;
 }
 
 .mainInfoContainer {
@@ -49,21 +48,29 @@
 
 .infoText {
   font-size: 0.9rem;
+  padding: 0 0.8rem;
+}
+
+.infoDate {
+  padding: 0.8rem 0.6rem;
+  border: 2px solid var(--ligth-gray);
 }
 
 .seatInfoContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   gap: var(--gap-elements);
 }
 
 .seatMapTitle {
   font-size: 1.1rem;
+  text-align: left;
 }
 
 .seatMapImgContainer {
   width: 95%;
+  margin: 0 auto;
 }
 
 .seatMapImg {
@@ -71,5 +78,7 @@
 }
 
 .seatMapParagraph {
-  padding: 0rem 1rem;
+  padding: 0 1.5rem 0 0;
+  font-size: 0.8rem;
+  word-spacing: 2px;
 }

@@ -14,7 +14,9 @@ const Detail = () => {
     const fetchEventData = async () => {
       try {
         const response = await fetch(
-          `https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=IA0obJJcbHaAUtgnDsQOMvEK5TTr4No1`
+          `https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${
+            import.meta.env.VITE_TICKETMASTER_API_KEY
+          }`
         );
         const data = await response.json();
 
@@ -37,7 +39,8 @@ const Detail = () => {
   if (Object.keys(error) > 0) {
     return <div>Ha Ocurrido un error</div>;
   }
-  console.log(eventData, "events");
+
+  /* RETURNING THE COMPONENT WITH INFO DETAILS OF SELECTED EVENT */
 
   return (
     <div className={styles.container}>
@@ -54,6 +57,8 @@ const Detail = () => {
 
         {
           <p className={styles.infoDate}>
+            {/* Taking de date of each event and using "format" to show it.
+            use optional chaning '?' to avoid errors when we call the api */}
             {eventData.dates?.start?.dateTime
               ? format(
                   new Date(eventData.dates.start.dateTime),
@@ -65,9 +70,11 @@ const Detail = () => {
           </p>
         }
       </div>
+
       <div className={styles.seatInfoContainer}>
         <h4 className={styles.seatMapTitle}>Mapa del evento</h4>
         <figure className={styles.seatMapImgContainer}>
+          {/* Same thing as above, optional chaining to show seat maps if there are */}
           <img
             className={styles.seatMapImg}
             src={
@@ -81,9 +88,6 @@ const Detail = () => {
         <p className={styles.seatMapParagraph}>{eventData.pleaseNote}</p>
       </div>
     </div>
-
-    /* ENCONTRAR EL ERROR DE PORQUE NO RECONOCE EL "START" EN LA LLAMADA A LA
-        API = LO SOLUCIONE USANDO EL OPTIONAL CHAINING, "?" SI SE ENCUENTRA EN LA LLAMADA A LA API LOS RESULTADOS SE MUESTRAN, DE LO CONTRARIO MUESTAR DATA NO AVAILABLE. */
   );
 };
 

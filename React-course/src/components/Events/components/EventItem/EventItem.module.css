@@ -1,8 +1,4 @@
 :root {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-
   --orange: #d66853;
   --brown: #7d4e57;
   --ligth-gray: #404752;
@@ -10,6 +6,13 @@
   --dark-blue: #201d24;
   --black: #6666661a;
   --white: #f4eef3;
+  --heart-shadow: #de2929;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 .eventContainer {
@@ -19,13 +22,18 @@
   gap: 1.6em;
   padding: 1.5rem;
   border-radius: 16px;
-  transition: transform 0.3s ease;
+}
 
-  &&:hover {
-    border: 0.5px solid var(--white);
-    cursor: pointer;
-    transform: scale(1.05);
-  }
+.imgContainer {
+  position: relative;
+}
+
+.fillHearth {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  filter: drop-shadow(2px 2px 1px var(--heart-shadow));
+  cursor: pointer;
 }
 
 .eventImg {

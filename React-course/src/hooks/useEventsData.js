@@ -1,27 +1,11 @@
-import { useState } from "react";
+import useEventsResults from "../state/events-results";
 
+/* ESTE HOOK SE ENCARGA DE GUARDAR VALORES EN FORMA LOCAL  */
 const useEventsData = () => {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState();
+  /* Llamamos desde el hook a los valores que necesitamos usar */
+  const { data, isLoading, error, fetchEvents } = useEventsResults();
 
-  /* Llamamos a la api que creamos en postman */
-  /* sustituimos el archivo JSON por una llamada a la api que creamos en postman */
-  const fetchEvents = async (params) => {
-    const link = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=IA0obJJcbHaAUtgnDsQOMvEK5TTr4No1&countryCode=MX${
-      params?.length ? params : ""
-    }`;
-
-    try {
-      const response = await fetch(link);
-      const data = await response.json();
-
-      setData(data);
-      setIsLoading(false);
-    } catch (error) {
-      setError(error);
-    }
-  };
+  /* MODIFICAMOS EL HOOK: usamos zustband y solo importamos el hook creado para centralizar la informacion */
 
   return {
     events: data?._embedded?.events || [],

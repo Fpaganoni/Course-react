@@ -1,14 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/Navbar";
 import Events from "../../components/Events";
-import useEventsData from "../../hooks/useEventsData";
+
 import ReactPaginate from "react-paginate";
 import styles from "./Home.module.css";
+import useEventsResults from "../../state/events-results";
 
 const Home = () => {
-  const { events, error, isLoading, fetchEvents, page } = useEventsData();
+  const { data, error, isLoading, fetchEvents } = useEventsResults();
   const [searchTerm, setSearchTerm] = useState("");
   const containerRef = useRef();
+  const events = data?._embedded?.events || [];
+  const page = data?.page || {};
 
   useEffect(() => {
     fetchEvents();
