@@ -1,5 +1,6 @@
 import { useState, forwardRef, useImperativeHandle } from "react";
 import styles from "./Navbar.module.css";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = forwardRef(({ onSearch }, ref) => {
@@ -30,6 +31,10 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
         onKeyDown={handleInputKeyDown}
         value={search}
       />
+
+      <Link className={styles.profileLink} to="/profile/my-info">
+        My Perfil
+      </Link>
     </div>
   );
 });
