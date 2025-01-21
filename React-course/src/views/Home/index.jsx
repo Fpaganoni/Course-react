@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Navbar from "../../components/Navbar";
 import Events from "../../components/Events";
 
@@ -10,11 +10,20 @@ const Home = () => {
   const { data, error, isLoading, fetchEvents } = useEventsResults();
   const [searchTerm, setSearchTerm] = useState("");
   const containerRef = useRef();
-  const events = data?._embedded?.events || [];
+  const fetchMyEvents = useRef();
+
+  //importamos useMemo para optimizar el rerendereo, y asi, el componente se rerenderea si y solo si 'data?._embedded?.events' cambia o se modifica
+  // useMemo es para calculos como el calculo de la constante de abajo
+  const events = useMemo(
+    () => data?._embedded?.events || [],
+    [data?._embedded?.events]
+  );
   const page = data?.page || {};
 
+  fetchMyEvents.current = fetchEvents;
+
   useEffect(() => {
-    fetchEvents();
+    fetchMyEvents.current();
   }, []);
 
   const handleNavbarSearch = (term) => {
@@ -22,9 +31,14 @@ const Home = () => {
     fetchEvents(`&keyword=${term}`);
   };
 
-  const handlePageClick = ({ selected }) => {
-    fetchEvents(`&keyword=${searchTerm}&page=${selected}`);
-  };
+  //Importamos y usamos useCallback, para no recrear funciones a menos que algunas de sus propiedades cambien, que son las dependencias que les pasamos en el array
+  // useCalback es para funciones
+  const handlePageClick = useCallback(
+    ({ selected }) => {
+      fetchEvents(`&keyword=${searchTerm}&page=${selected}`);
+    },
+    [fetchEvents, searchTerm]
+  );
 
   const renderEvents = () => {
     if (isLoading) {

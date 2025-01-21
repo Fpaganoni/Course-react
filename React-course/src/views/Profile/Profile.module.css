@@ -35,9 +35,9 @@
 .tabsContainer {
   display: flex;
   gap: 2.3rem;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
   width: 350px;
-  justify-self: center;
+  justify-content: space-between;
 }
 
 .tab {

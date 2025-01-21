@@ -43,7 +43,7 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  background: linear-gradient(to right, #364156, #212d40, #0f2027);
+  background: hsl(212, 29%, 8%);
 }
 
 button {
