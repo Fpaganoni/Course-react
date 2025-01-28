@@ -16,16 +16,19 @@
 }
 
 .eventContainer {
-  width: 100%;
-  max-width: 1000px;
+  height: 350px;
   display: flex;
-  gap: 1.6em;
+  flex-wrap: wrap;
+  width: 310px;
+  gap: 1em;
   padding: 1.5rem;
   border-radius: 16px;
 }
 
 .imgContainer {
   position: relative;
+  width: 100%;
+  height: 180px;
 }
 
 .fillHearth {
@@ -39,10 +42,10 @@
 .eventImg {
   align-self: center;
   border-radius: 2%;
-  min-width: 250px;
-  width: 250px;
-  min-height: 150px;
-  height: 150px;
+  /* min-width: 200px; */
+  width: 100%;
+  /* max-height: 150px; */
+  height: 100%;
 }
 
 .infoContainer {
@@ -57,24 +60,27 @@
   letter-spacing: 2px;
   color: var(--white);
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   text-align: center;
 }
 
 .eventInfo {
-  width: 100%;
-  margin: 0;
+  margin: 0 auto;
   line-height: 1.4;
   color: var(--white);
   font-size: 0.8rem;
-  overflow: hidden;
-  padding-right: 0.8rem;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+}
 
-  transition: transform 0.3s;
+.pricesTable {
+  width: 150px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+}
+
+.captionTable {
+  background-color: var(--ligth-gray);
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 0.3rem;
 }
 
 .seeMoreBtn {

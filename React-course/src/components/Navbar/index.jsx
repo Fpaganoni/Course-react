@@ -8,6 +8,7 @@ import instagram from "../../assets//icon-instagram.png";
 import telegram from "../../assets/icon-telegram.png";
 import spotify from "../../assets/icon-spotify.png";
 import youtube from "../../assets/icon-youtube.png";
+import userImg from "../../assets/user.png";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = forwardRef(({ onSearch }, ref) => {
@@ -30,19 +31,28 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
 
   return (
     <div ref={ref} className={styles.navBarContainer}>
-      {/*    <h1 className={styles.navbarTitle}>Mi Boletera</h1> */}
-
       <div className={styles.firstNavbar}>
         <Link className={styles.profileLink} to="/profile/my-info">
+          <img
+            className={styles.userImg}
+            src={userImg}
+            width={25}
+            height={25}
+          ></img>
           Mi Profile
         </Link>
 
         <div className={styles.socials}>
-          <img className={styles.socialIcons} src={instagram} alt="" />
-          <img className={styles.socialIcons} src={x} alt="" />
-          <img className={styles.socialIcons} src={telegram} alt="" />
-          <img className={styles.socialIcons} src={youtube} alt="" />
-          <img className={styles.socialIcons} src={spotify} alt="" />
+          <img className={styles.socialIcons} src={instagram} alt="instagram" />
+          <img className={styles.socialIcons} src={x} alt="X" />
+          <img className={styles.socialIcons} src={telegram} alt="telegram" />
+          <img
+            className={styles.socialIconYT}
+            src={youtube}
+            alt="youtube"
+            width={30}
+          />
+          <img className={styles.socialIcons} src={spotify} alt="spotify" />
 
           <figure className={styles.ticketContainer}>
             <img

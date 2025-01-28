@@ -17,6 +17,7 @@ const useEventsResults = create((set) => ({
 
       const response = await fetch(link);
       const data = await response.json();
+      console.log(data);
 
       await set(() => ({ data, isLoading: false }));
     } catch (error) {

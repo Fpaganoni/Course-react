@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Navbar from "../../components/Navbar";
 import Events from "../../components/Events";
-
 import ReactPaginate from "react-paginate";
 import styles from "./Home.module.css";
 import useEventsResults from "../../state/events-results";

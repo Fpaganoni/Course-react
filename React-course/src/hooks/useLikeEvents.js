@@ -4,7 +4,7 @@ import { LIKED_EVENTS_STORAGE_KEY } from "../utils/constants";
 const checkIsEventsLiked = (eventId) => {
   const likedEvents =
     JSON.parse(localStorage.getItem(LIKED_EVENTS_STORAGE_KEY)) || [];
-  console.log(likedEvents);
+  // console.log(likedEvents);
 
   return likedEvents.includes(eventId);
 };
