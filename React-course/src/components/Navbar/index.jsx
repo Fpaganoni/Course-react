@@ -46,13 +46,13 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
           <img className={styles.socialIcons} src={instagram} alt="instagram" />
           <img className={styles.socialIcons} src={x} alt="X" />
           <img className={styles.socialIcons} src={telegram} alt="telegram" />
+          <img className={styles.socialIcons} src={spotify} alt="spotify" />
           <img
             className={styles.socialIconYT}
             src={youtube}
             alt="youtube"
             width={30}
           />
-          <img className={styles.socialIcons} src={spotify} alt="spotify" />
 
           <figure className={styles.ticketContainer}>
             <img

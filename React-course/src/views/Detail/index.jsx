@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./Detail.module.css";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
+import { Link } from "react-router-dom";
 
 const Detail = () => {
   const { eventId } = useParams();
@@ -22,6 +23,7 @@ const Detail = () => {
 
         setEventData(data);
         setIsLoading(false);
+        console.log(data);
       } catch (error) {
         setEventData({});
         setError(error);
@@ -44,8 +46,29 @@ const Detail = () => {
 
   return (
     <div className={styles.container}>
+      <Link to="/" className={styles.homeLink}>
+        Inicio
+      </Link>
       <div className={styles.mainInfoContainer}>
-        <h3 className={styles.infoTitle}>{eventData.name}</h3>
+        <span className={styles.titleImgContainer}>
+          <h3 className={styles.infoTitle}>{eventData.name}</h3>
+
+          {
+            <p className={styles.infoDate}>
+              {/* Taking de date of each event and using "format" to show it.
+            use optional chaning '?' to avoid errors when we call the api */}
+              {eventData.dates?.start?.dateTime
+                ? format(
+                    new Date(eventData.dates.start.dateTime),
+                    "d LLLL yyyy - H:mm",
+                    { locale: es }
+                  )
+                : "Fecha no disponible"}
+              Hrs
+            </p>
+          }
+        </span>
+
         <figure className={styles.imgContainerInfo}>
           <img
             className={styles.imgInfo}
@@ -54,25 +77,32 @@ const Detail = () => {
           />
         </figure>
         <p className={styles.infoText}>{eventData.info}</p>
-
-        {
-          <p className={styles.infoDate}>
-            {/* Taking de date of each event and using "format" to show it.
-            use optional chaning '?' to avoid errors when we call the api */}
-            {eventData.dates?.start?.dateTime
-              ? format(
-                  new Date(eventData.dates.start.dateTime),
-                  "d LLLL yyyy - H:mm",
-                  { locale: es }
-                )
-              : "Fecha no disponible"}
-            Hrs
-          </p>
-        }
       </div>
 
       <div className={styles.seatInfoContainer}>
-        <h4 className={styles.seatMapTitle}>Mapa del evento</h4>
+        <table className={styles.pricesTable}>
+          <caption className={styles.captionTable}>Price List</caption>
+          <tr className={styles.trTable}>
+            <td className={styles.tdTables}>Type:</td>
+            <td className={styles.tdTables}>
+              {eventData.priceRanges?.[0].type}
+            </td>
+          </tr>
+          <tr className={styles.trTable}>
+            <td className={styles.tdTables}>Min:</td>
+            <td className={styles.tdTables}>
+              {eventData?.priceRanges?.[0].min}
+              {eventData?.priceRanges?.[0].currency}
+            </td>
+          </tr>
+          <tr className={styles.trTable}>
+            <td className={styles.tdTables}>Max:</td>
+            <td className={styles.tdTables}>
+              {eventData.priceRanges?.[0].max}
+              {eventData?.priceRanges?.[0].currency}
+            </td>
+          </tr>
+        </table>
         <figure className={styles.seatMapImgContainer}>
           {/* Same thing as above, optional chaining to show seat maps if there are */}
           <img

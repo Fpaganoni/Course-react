@@ -23,6 +23,11 @@
   gap: 1em;
   padding: 1.5rem;
   border-radius: 16px;
+  transition: transform 350ms ease;
+
+  &&:hover {
+    transform: scale(1.05);
+  }
 }
 
 .imgContainer {

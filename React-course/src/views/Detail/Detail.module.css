@@ -10,39 +10,67 @@
   box-sizing: border-box;
 }
 
+.homeLink {
+  color: var(--white);
+  text-decoration: none;
+  text-align: left;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 3.5rem;
+  left: 3.5rem;
+  z-index: 1;
+
+  &&:hover {
+    color: var(--white);
+    text-shadow: 1px 1px 1px var(--orange), 2px 2px 2px var(--orange);
+  }
+}
+
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 2.1rem;
-  max-width: 750px;
-  margin: 2.5rem 0;
-  background-color: var(--dark-gray);
-  padding: 2.5rem;
-  border-radius: 10px;
+  max-width: 1100px;
 }
 
 .mainInfoContainer {
-  width: 100%;
+  width: 1100px;
   height: max-content;
   display: flex;
+  gap: 2.1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-elements);
+  margin: 2.5rem 0 0 0;
+  background-color: var(--dark-gray);
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+
+.titleImgContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+  position: absolute;
+  top: 200px;
+  backdrop-filter: blur(25px);
+  padding: 1rem 1.2rem;
+  border-radius: 2px;
 }
 
 .infoTitle {
   letter-spacing: 2px;
   color: var(--white);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .imgContainerInfo {
-  width: 90%;
+  width: 100%;
+  max-height: 500px;
 }
 
 .imgInfo {
   width: 100%;
+  max-height: 500px;
   object-fit: cover;
 }
 
@@ -52,20 +80,23 @@
 }
 
 .infoDate {
-  padding: 0.8rem 0.6rem;
-  border: 2px solid var(--ligth-gray);
+  font-size: 1.2rem;
 }
 
 .seatInfoContainer {
+  width: 1100px;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   gap: var(--gap-elements);
+  background-color: var(--dark-gray);
+  padding: 1rem 1.2rem;
 }
 
-.seatMapTitle {
-  font-size: 1.1rem;
-  text-align: left;
+.pricesTable {
+  width: 50%;
+  text-align: center;
+  border: 1px solid var(--orange);
 }
 
 .seatMapImgContainer {

@@ -27,14 +27,14 @@ const Events = ({ searchTerm, events }) => {
       <EventItem
         key={`event-item-${eventItem.id}`}
         name={eventItem.name}
-        description={eventItem.promoters[0].description}
+        description={eventItem.promoter?.description}
         image={eventItem.images[0].url}
         onEventClick={handleEventItemClick}
         id={eventItem.id}
-        priceType={eventItem.priceRanges[0].type}
-        priceMin={eventItem.priceRanges[0].min}
-        priceMax={eventItem.priceRanges[0].max}
-        currency={eventItem.priceRanges[0].currency}
+        // priceType={eventItem.priceRanges[0].type}
+        // priceMin={eventItem.priceRanges[0].min}
+        // priceMax={eventItem.priceRanges[0].max}
+        // currency={eventItem.priceRanges[0].currency}
       />
     ));
   };
