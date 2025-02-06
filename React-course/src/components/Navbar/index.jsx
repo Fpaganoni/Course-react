@@ -39,7 +39,7 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
             width={25}
             height={25}
           ></img>
-          Mi Profile
+          My Account
         </Link>
 
         <div className={styles.socials}>

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./Detail.module.css";
 import { format } from "date-fns";
-import { es } from "date-fns/locale";
+
 import { Link } from "react-router-dom";
 
 const Detail = () => {
@@ -52,57 +52,69 @@ const Detail = () => {
       <div className={styles.mainInfoContainer}>
         <span className={styles.titleImgContainer}>
           <h3 className={styles.infoTitle}>{eventData.name}</h3>
-
-          {
-            <p className={styles.infoDate}>
-              {/* Taking de date of each event and using "format" to show it.
-            use optional chaning '?' to avoid errors when we call the api */}
-              {eventData.dates?.start?.dateTime
-                ? format(
-                    new Date(eventData.dates.start.dateTime),
-                    "d LLLL yyyy - H:mm",
-                    { locale: es }
-                  )
-                : "Fecha no disponible"}
-              Hrs
-            </p>
-          }
         </span>
 
-        <figure className={styles.imgContainerInfo}>
-          <img
-            className={styles.imgInfo}
-            src={eventData.images?.[0].url}
-            alt={eventData.name}
-          />
-        </figure>
-        <p className={styles.infoText}>{eventData.info}</p>
+        <img
+          className={styles.imgInfo}
+          src={eventData.images?.[0].url}
+          alt={eventData.name}
+        />
+
+        {/* <p className={styles.infoText}>{eventData.info}</p> */}
       </div>
 
       <div className={styles.seatInfoContainer}>
-        <table className={styles.pricesTable}>
-          <caption className={styles.captionTable}>Price List</caption>
-          <tr className={styles.trTable}>
-            <td className={styles.tdTables}>Type:</td>
-            <td className={styles.tdTables}>
-              {eventData.priceRanges?.[0].type}
-            </td>
-          </tr>
-          <tr className={styles.trTable}>
-            <td className={styles.tdTables}>Min:</td>
-            <td className={styles.tdTables}>
-              {eventData?.priceRanges?.[0].min}
-              {eventData?.priceRanges?.[0].currency}
-            </td>
-          </tr>
-          <tr className={styles.trTable}>
-            <td className={styles.tdTables}>Max:</td>
-            <td className={styles.tdTables}>
-              {eventData.priceRanges?.[0].max}
-              {eventData?.priceRanges?.[0].currency}
-            </td>
-          </tr>
-        </table>
+        <section className={styles.pricesContainer}>
+          <div className={styles.cardDetailsDate}>
+            <div className={styles.dateDetails}>
+              <p className={styles.cardDetailsInfoDayHour}>
+                {eventData.dates?.start?.dateTime
+                  ? format(new Date(eventData.dates.start.dateTime), "d MMM")
+                  : "Fecha no disponible"}
+              </p>
+
+              <p className={styles.cardDetailsInfoDate}>
+                {/* Taking de date of each event and using "format" to show it.
+            use optional chaning '?' to avoid errors when we call the api */}
+                {eventData.dates?.start?.dateTime
+                  ? format(new Date(eventData.dates.start.dateTime), "EEE - p")
+                  : "Fecha no disponible"}
+              </p>
+            </div>
+            <div className={styles.locationAndTicketsDetails}>
+              <h3 className={styles.titleDetails}>{eventData.name}</h3>
+              <p className={styles.detailsAddress}>
+                {eventData?._embedded?.venues?.[0].address?.line1}
+              </p>
+              <small className={styles.detailsTicketsLimit}>
+                {eventData?.ticketLimit?.info}
+              </small>
+            </div>
+            <button className={styles.buyButton}>Buy Tickets</button>
+          </div>
+
+          <table className={styles.pricesTable}>
+            <caption className={styles.captionTable}>
+              {eventData.priceRanges?.[0].type} tickets on sale from
+            </caption>
+
+            <tr className={styles.trTable}>
+              <td className={styles.tdTables}>Min:</td>
+              <td className={styles.tdTables}>
+                {eventData?.priceRanges?.[0].min}
+                {eventData?.priceRanges?.[0].currency}
+              </td>
+            </tr>
+            <tr className={styles.trTable}>
+              <td className={styles.tdTables}>Max:</td>
+              <td className={styles.tdTables}>
+                {eventData.priceRanges?.[0].max}
+                {eventData?.priceRanges?.[0].currency}
+              </td>
+            </tr>
+          </table>
+        </section>
+
         <figure className={styles.seatMapImgContainer}>
           {/* Same thing as above, optional chaining to show seat maps if there are */}
           <img
