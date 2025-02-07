@@ -93,12 +93,25 @@ const Detail = () => {
             <button className={styles.buyButton}>Buy Tickets</button>
           </div>
 
-          <table className={styles.pricesTable}>
-            <caption className={styles.captionTable}>
-              {eventData.priceRanges?.[0].type} tickets on sale from
-            </caption>
+          <div className={styles.pricesTable}>
+            <div className={styles.cardInsidesSeparators}>
+              <h3 className={styles.cardInsidesTitle}>Event Details</h3>
+            </div>
+            <div className={styles.cardInsidesSeparators}>
+              <p>
+                {eventData.classifications?.[0].genre?.name} -{" "}
+                {eventData.classifications?.[0].subGenre?.name}
+              </p>
+            </div>
+            <div className={styles.cardInsidesSeparators}>
+              <p className={styles.captionTable}>
+                {eventData.priceRanges?.[0].type} tickets on sale from{" "}
+                {eventData?.priceRanges?.[0].min}
+                {eventData?.priceRanges?.[0].currency}
+              </p>
+            </div>
 
-            <tr className={styles.trTable}>
+            {/* <tr className={styles.trTable}>
               <td className={styles.tdTables}>Min:</td>
               <td className={styles.tdTables}>
                 {eventData?.priceRanges?.[0].min}
@@ -111,8 +124,8 @@ const Detail = () => {
                 {eventData.priceRanges?.[0].max}
                 {eventData?.priceRanges?.[0].currency}
               </td>
-            </tr>
-          </table>
+            </tr> */}
+          </div>
         </section>
 
         <figure className={styles.seatMapImgContainer}>
