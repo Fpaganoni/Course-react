@@ -2,8 +2,15 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./Detail.module.css";
 import { format } from "date-fns";
-
+import x from "../../assets/icon-X.png";
+import instagram from "../../assets//icon-instagram.png";
+import telegram from "../../assets/icon-telegram.png";
+import spotify from "../../assets/icon-spotify.png";
+import youtube from "../../assets/icon-youtube.png";
+import userImg from "../../assets/user.png";
 import { Link } from "react-router-dom";
+import home from "../../assets/icon-home.png";
+import ticket from "../../assets/ticket.png";
 
 const Detail = () => {
   const { eventId } = useParams();
@@ -46,9 +53,45 @@ const Detail = () => {
 
   return (
     <div className={styles.container}>
-      <Link to="/" className={styles.homeLink}>
-        Inicio
-      </Link>
+      <div className={styles.firstNavbar}>
+        <Link to="/" className={styles.homeLink}>
+          <img src={home} className={styles.homeImg} alt="home" />
+          Home
+        </Link>
+        <Link className={styles.profileLink} to="/profile/my-info">
+          <img
+            className={styles.userImg}
+            src={userImg}
+            width={25}
+            height={25}
+          ></img>
+          My Account
+        </Link>
+
+        <div className={styles.socials}>
+          <img className={styles.socialIcons} src={instagram} alt="instagram" />
+          <img className={styles.socialIcons} src={x} alt="X" />
+          <img className={styles.socialIcons} src={telegram} alt="telegram" />
+          <img className={styles.socialIcons} src={spotify} alt="spotify" />
+          <img
+            className={styles.socialIconYT}
+            src={youtube}
+            alt="youtube"
+            width={30}
+          />
+
+          <figure className={styles.ticketContainer}>
+            <img
+              className={styles.ticketImg}
+              src={ticket}
+              alt="ticket"
+              width={70}
+              height={70}
+            />
+          </figure>
+        </div>
+      </div>
+
       <div className={styles.mainInfoContainer}>
         <span className={styles.titleImgContainer}>
           <h3 className={styles.infoTitle}>{eventData.name}</h3>
@@ -90,41 +133,27 @@ const Detail = () => {
                 {eventData?.ticketLimit?.info}
               </small>
             </div>
-            <button className={styles.buyButton}>Buy Tickets</button>
           </div>
 
           <div className={styles.pricesTable}>
             <div className={styles.cardInsidesSeparators}>
               <h3 className={styles.cardInsidesTitle}>Event Details</h3>
             </div>
+
             <div className={styles.cardInsidesSeparators}>
-              <p>
+              <p className={styles.standarPrice}>
                 {eventData.classifications?.[0].genre?.name} -{" "}
                 {eventData.classifications?.[0].subGenre?.name}
               </p>
-            </div>
-            <div className={styles.cardInsidesSeparators}>
-              <p className={styles.captionTable}>
+              <p className={styles.standarPrice}>
                 {eventData.priceRanges?.[0].type} tickets on sale from{" "}
-                {eventData?.priceRanges?.[0].min}
-                {eventData?.priceRanges?.[0].currency}
               </p>
+              <span className={styles.price}>
+                {eventData?.priceRanges?.[0].min}{" "}
+                {eventData?.priceRanges?.[0].currency}
+              </span>
             </div>
-
-            {/* <tr className={styles.trTable}>
-              <td className={styles.tdTables}>Min:</td>
-              <td className={styles.tdTables}>
-                {eventData?.priceRanges?.[0].min}
-                {eventData?.priceRanges?.[0].currency}
-              </td>
-            </tr>
-            <tr className={styles.trTable}>
-              <td className={styles.tdTables}>Max:</td>
-              <td className={styles.tdTables}>
-                {eventData.priceRanges?.[0].max}
-                {eventData?.priceRanges?.[0].currency}
-              </td>
-            </tr> */}
+            <button className={styles.buyButton}>Buy Tickets</button>
           </div>
         </section>
 
