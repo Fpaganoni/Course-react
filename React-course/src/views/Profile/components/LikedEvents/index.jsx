@@ -55,7 +55,7 @@ const LikedEvents = () => {
   }
 
   return (
-    <div>
+    <div className={styles.eventsContainers}>
       {events.map((event, index) => {
         return (
           <EventItem

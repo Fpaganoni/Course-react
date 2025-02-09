@@ -12,15 +12,62 @@
 }
 
 .linkContainer {
-  width: 800px;
+  width: 100%;
+  min-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.firstNavbar {
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.socialIcons {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.socialIconYT {
+  cursor: pointer;
 }
 
 .homeLink {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   color: var(--white);
   text-decoration: none;
-  text-align: left;
-  font-size: 0.8rem;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+
+  &&:hover {
+    color: var(--white);
+    text-shadow: 1px 1px 1px var(--orange), 2px 2px 2px var(--orange);
+  }
+}
+
+.homeImg {
+  align-self: center;
+}
+
+.profileLink {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--white);
+  transition: all 0.3s ease-in-out;
 
   &&:hover {
     color: var(--white);
@@ -35,7 +82,7 @@
 .tabsContainer {
   display: flex;
   gap: 2.3rem;
-  margin: 0 auto 1rem;
+  margin: 1rem auto 3rem;
   width: 350px;
   justify-content: space-between;
 }

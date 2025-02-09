@@ -2,15 +2,15 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./Detail.module.css";
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
 import x from "../../assets/icon-X.png";
 import instagram from "../../assets//icon-instagram.png";
 import telegram from "../../assets/icon-telegram.png";
 import spotify from "../../assets/icon-spotify.png";
 import youtube from "../../assets/icon-youtube.png";
 import userImg from "../../assets/user.png";
-import { Link } from "react-router-dom";
-import home from "../../assets/icon-home.png";
 import ticket from "../../assets/ticket.png";
+import home from "../../assets/icon-home.png";
 
 const Detail = () => {
   const { eventId } = useParams();
