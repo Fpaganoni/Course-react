@@ -1,0 +1,9 @@
+.generalContainer {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.footerContainer {
+  display: flex;
+}

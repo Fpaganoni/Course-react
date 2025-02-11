@@ -4,6 +4,7 @@ import Events from "../../components/Events";
 import ReactPaginate from "react-paginate";
 import styles from "./Home.module.css";
 import useEventsResults from "../../state/events-results";
+import Footer from "../../components/Footer";
 
 const Home = () => {
   const { data, error, isLoading, fetchEvents } = useEventsResults();
@@ -75,6 +76,7 @@ const Home = () => {
     <div>
       <Navbar onSearch={handleNavbarSearch} ref={containerRef} />
       {renderEvents()}
+      <Footer />
     </div>
   );
 };

@@ -56,18 +56,20 @@ const LikedEvents = () => {
 
   return (
     <div className={styles.eventsContainers}>
-      {events.map((event, index) => {
-        return (
-          <EventItem
-            key={`liked-event-item-${event.id}-${index}`}
-            name={event.name}
-            info={event.info}
-            image={event.images[0].url}
-            onEventClick={handleEventItemClick}
-            id={event.id}
-          />
-        );
-      })}
+      <div className={styles.alignEventsContainer}>
+        {events.map((event, index) => {
+          return (
+            <EventItem
+              key={`liked-event-item-${event.id}-${index}`}
+              name={event.name}
+              info={event.info}
+              image={event.images[0].url}
+              onEventClick={handleEventItemClick}
+              id={event.id}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

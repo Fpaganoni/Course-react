@@ -1,5 +1,11 @@
 .eventsContainers {
   width: 100%;
+}
+
+.alignEventsContainer {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  max-width: 1100px;
+  justify-content: center;
 }
