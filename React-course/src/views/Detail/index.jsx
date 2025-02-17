@@ -11,6 +11,7 @@ import youtube from "../../assets/icon-youtube.png";
 import userImg from "../../assets/user.png";
 import ticket from "../../assets/ticket.png";
 import home from "../../assets/icon-home.png";
+import Footer from "../../components/Footer";
 
 const Detail = () => {
   const { eventId } = useParams();
@@ -171,6 +172,7 @@ const Detail = () => {
         </figure>
         <p className={styles.seatMapParagraph}>{eventData.pleaseNote}</p>
       </div>
+      <Footer />
     </div>
   );
 };

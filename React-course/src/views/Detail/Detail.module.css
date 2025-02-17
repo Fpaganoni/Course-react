@@ -155,7 +155,6 @@
   gap: var(--gap-elements);
   background-color: var(--dark-gray);
   padding: 3.5rem 1.2rem 0rem;
-  margin-bottom: 3rem;
 }
 
 .pricesContainer {
@@ -193,6 +192,7 @@
 
 .detailsTicketsLimit {
   color: var(--red);
+  max-width: 550px;
 }
 
 .buyButton {

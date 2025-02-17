@@ -10,11 +10,15 @@ const Footer = () => {
   return (
     <div className={styles.generalContainer}>
       <footer className={styles.footerContainer}>
-        <section className={styles.footerSections}>
+        <section className={`${styles.footerSections} ${styles.section1}`}>
           <h2 className={styles.footerCoinTitle}>
-            <figure className={styles.imgContainer}>
-              <img src={EEUUFlag} alt="United States Flag" />
-            </figure>
+            {/* <figure className={styles.imgContainer}> */}
+            <img
+              className={styles.imgEEUU}
+              src={EEUUFlag}
+              alt="United States Flag"
+            />
+            {/* </figure> */}
             United States
           </h2>
           <p className={styles.footerCoinParagraph}>
@@ -23,7 +27,7 @@ const Footer = () => {
           </p>
           <p className={styles.companyInfo}>© Hello Ticket, SL.</p>
         </section>
-        <section className={styles.footerSections}>
+        <section className={`${styles.footerSections} ${styles.section2}`}>
           <h2 className={styles.sectionTitles}>Company</h2>
           <ul className={styles.footerList}>
             <li className={styles.companyList}>About Us</li>
@@ -55,7 +59,7 @@ const Footer = () => {
             <li className={styles.helpList}>Contact Us</li>
           </ul>
         </section>
-        <section className={styles.footerSections}>
+        <section className={`${styles.footerSections} ${styles.joinUsSection}`}>
           <h2 className={styles.sectionTitles}>Join us on</h2>
           <img src={x} alt="icono de X" className={styles.socialIcons} />
           <img
