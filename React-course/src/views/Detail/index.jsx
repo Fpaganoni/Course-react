@@ -50,6 +50,16 @@ const Detail = () => {
     return <div>Ha Ocurrido un error</div>;
   }
 
+  // FUNCTION TO FIND BEST IMG > 1000PX WIDTH
+
+  const findBestImg = (images) => {
+    if (!images || images.length === 0) return null;
+
+    const bestImg = images.find((img) => img.width > 1100);
+
+    return bestImg?.url || images[0]?.url;
+  };
+
   /* RETURNING THE COMPONENT WITH INFO DETAILS OF SELECTED EVENT */
 
   return (
@@ -100,11 +110,9 @@ const Detail = () => {
 
         <img
           className={styles.imgInfo}
-          src={eventData.images?.[0].url}
+          src={findBestImg(eventData.images)}
           alt={eventData.name}
         />
-
-        {/* <p className={styles.infoText}>{eventData.info}</p> */}
       </div>
 
       <div className={styles.seatInfoContainer}>

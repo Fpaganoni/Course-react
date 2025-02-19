@@ -14,6 +14,14 @@ const Events = ({ searchTerm, events }) => {
     navigate(`/detail/${id}`);
   };
 
+  const findBestImg = (images) => {
+    if (!images || images.length === 0) return null;
+
+    const bestImg = images.find((img) => img.width > 250);
+
+    return bestImg?.url || images[0]?.url;
+  };
+
   const renderEvents = () => {
     let eventsFiltered = events;
 
@@ -28,13 +36,9 @@ const Events = ({ searchTerm, events }) => {
         key={`event-item-${eventItem.id}`}
         name={eventItem.name}
         description={eventItem.promoter?.description}
-        image={eventItem.images[0].url}
+        image={findBestImg(eventItem.images)}
         onEventClick={handleEventItemClick}
         id={eventItem.id}
-        // priceType={eventItem.priceRanges[0].type}
-        // priceMin={eventItem.priceRanges[0].min}
-        // priceMax={eventItem.priceRanges[0].max}
-        // currency={eventItem.priceRanges[0].currency}
       />
     ));
   };
